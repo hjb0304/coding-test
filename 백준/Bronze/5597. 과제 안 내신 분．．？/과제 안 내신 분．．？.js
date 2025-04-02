@@ -9,9 +9,6 @@ let answer = [];
 
 for (let i = 1; i <= 30; i++) {
   if (!input.includes(i)) {
-    answer.push(i);
+    console.log(i);
   }
 }
-
-console.log(answer[0] < answer[1] ? answer[0] : answer[1]);
-console.log(answer[0] < answer[1] ? answer[1] : answer[0]);
