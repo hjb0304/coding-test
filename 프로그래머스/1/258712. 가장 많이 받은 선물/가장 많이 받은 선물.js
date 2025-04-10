@@ -42,14 +42,12 @@ function solution(friends, gifts) {
         }
     }
     
+    // 선물 받을 횟수 중 가장 큰 수를 answer에 할당
     for(let friend in giftCount) {
         let gift = giftCount[friend][2];
         if(answer < gift)
         answer = gift;
     }
     
-    
     return answer;
-    
-    
 }
