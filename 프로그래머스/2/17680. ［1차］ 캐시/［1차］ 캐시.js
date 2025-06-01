@@ -3,6 +3,7 @@ function solution(cacheSize, cities) {
     let cache = [];
     
     // 캐시 교체
+    // 캐시 크기가 0일 경우: cache miss가 연속으로 발생
     if(cacheSize === 0) {
         return cities.length * 5;
     }
