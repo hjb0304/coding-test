@@ -1,12 +1,9 @@
 function solution(priorities, location) {
     let count = 0;
     // 각 프로세스의 번호와 우선순위를 나타내는 객체 배열
-    const processes = [];
-    
-    // 프로세스 번호와 중요도 넣기 
-    priorities.forEach((priority, i) => {
-        processes[i] = {index: i, priority: priority};
-    });
+    const processes = priorities.map((priority, i) => 
+        {return {index: i, priority: priority}}
+    );
     
     while(processes.length > 0) {
         // 프로세스 꺼내기
