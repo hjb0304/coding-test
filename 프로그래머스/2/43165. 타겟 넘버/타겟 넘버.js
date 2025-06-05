@@ -8,14 +8,9 @@ function solution(numbers, target) {
         }
         // +,- 둘중 하나를 선택해 합에 더하거나 빼줌
         if(i < numbers.length) {
-            ["+", "-"].forEach (e => {
-                if(e === "+") {
-                    makeNumber(i + 1, current + numbers[i]);
-                } else {
-                    makeNumber(i + 1, current - numbers[i]);
-                }
-            })
-        }
+                makeNumber(i + 1, current + numbers[i]);
+                makeNumber(i + 1, current - numbers[i]);
+            }
     }
     
     makeNumber(0, 0);
