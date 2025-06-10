@@ -1,26 +1,21 @@
 function solution(n, t, m, p) {
     var answer = '';
-    const arr = [];
+    let line = '';
     
     let i = 0;
-    while(arr.length < t * m) {
+    while(line.length < t * m) {
         // n진수로 변환
         let num = i.toString(n).toUpperCase();
-        // 1의 자리로 쪼개기
-        const split = num.split(""); 
-        // 배열에 넣기
-        let j = 0;
-        while(arr.length < t * m && j < split.length) {
-            arr.push(split[j]);
-            j++;
-        }
+        // 전체 문자열에 넣기
+        line += num;
         i++;
     }
     
     // 튜브의 순서만 골라내기
-    for(let i = p - 1; i < arr.length; i += m) {
-        answer += arr[i];
+    let count = 0;
+    for(let i = p - 1; i < line.length; i += m) {
+        answer += line[i];
     }
     
-    return answer;
+    return answer.slice(0, t);
 }
