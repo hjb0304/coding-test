@@ -1,9 +1,8 @@
 function solution(N, road, K) {
-    // 배달 가능한 마을들을 담은 Set
-    var answer = new Set();
+    // 마을까지의 거리를 담은 객체
+    var answer =  Array(N).fill(Infinity);
     // 마을과 마을의 최단 거리를 나타내는 객체
     const connect = {};
-    const visited = Array(N).fill(false);
     
     for(let arr of road) {
         const [a, b, time] = arr;
@@ -32,21 +31,21 @@ function solution(N, road, K) {
         }        
     }
     
+    answer[0] = 0;
+    
     function dfs(start, count) {
-        visited[start - 1] = true;
-        if(!answer.has(start)) answer.add(start);
+        answer[start - 1] = count;
         
         for(arr of connect[start]) {
             const [b, time] = arr;
-            if(count + time <= K && !visited[b - 1]) {
-                visited[b - 1] = true;
+            // 총 시간이 현재 기록된 시간보다 적을 경우 갱신
+            if(count + time <= answer[b - 1]) {
                 dfs(b, count + time);
-                visited[b - 1] = false;
             }
         }
     }
     
     dfs(1, 0);
 
-    return answer.size;
+    return answer.filter(i => i <= K).length;
 }
