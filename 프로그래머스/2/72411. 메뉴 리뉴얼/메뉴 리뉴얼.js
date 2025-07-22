@@ -37,7 +37,7 @@ function solution(orders, course) {
         let max = 0;
         // 가장 많이 나온 수 구하기
         for(let com in object[num]) {
-            if(object[num][com] >= 2 && object[num][com] >= max) {
+            if(object[num][com] >= 2 && object[num][com] > max) {
                 max = object[num][com];
             }
         }
