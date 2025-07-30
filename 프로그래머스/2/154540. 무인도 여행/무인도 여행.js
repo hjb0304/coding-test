@@ -4,20 +4,22 @@ function solution(maps) {
     const visited = Array.from({length: maps.length}, () => Array(maps[0].length).fill(false));
     
     function dfs(x, y) {
-        // 현재 칸 누적
+        // 현재 칸 숫자 누적
         let sum = +maps[x][y];
         
         for(let move of moves) {
+            // 새로운 칸으로 이동
             const newX = x + move[0];
             const newY = y + move[1];
             
+            // 지도를 벗어나지 않고 방문한 적 없고 바다가 아닌 칸만 방문
             if(newX >= 0 && newY >= 0 && newX < maps.length && newY < maps[0].length && !visited[newX][newY] && maps[newX][newY] !== "X") {
                 visited[newX][newY] = true;
-                // sum 누적
+                // 다음 방문을 통해 숫자를 누적
                 sum += dfs(newX, newY);            
             }
         }
-        // 모든 상황에서 값 반환
+        // 재귀가 끝나면 값 반환
         return sum;
     }
     
