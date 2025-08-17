@@ -44,7 +44,7 @@ function solution(p) {
                 break;
             }
         }
-        console.log(newU, newV)
+
         // u가 올바른 문자열일 경우
         if(isCorrect(newU)) {
             return newU + makeVCorrect(newU, newV);
