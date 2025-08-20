@@ -12,12 +12,14 @@ function solution(board, moves) {
         }
         
         if(first !== 0) {
-        dolls.unshift(first);
-        if(first === dolls[1]) {
-            dolls.splice(0, 2);
-            answer += 2;
+            if(first === dolls[dolls.length - 1]) {
+                dolls.pop();
+                answer += 2;
+            } else {
+                dolls.push(first);                
+            }
         }
-        }
-    })
+    });
+    
     return answer;
 }
