@@ -9,16 +9,18 @@ function solution(numbers) {
     }
     
     // 사전순으로 정렬    
-    numbers.sort((a, b) => {
-        // n과 nn일 경우 둘을 붙인 수를 자리 바꿔 비교
-        if(a[0] === b[0]) {
-            if(+(a + b) > +(b + a)) {
-                return -1;
-            } else return 1;
-        }
-        // 나머지는 내림차순
-        return b.localeCompare(a)});
+//     numbers.sort((a, b) => {
+//         // n과 nn일 경우 둘을 붙인 수를 자리 바꿔 비교
+//         if(a[0] === b[0]) {
+//             if(+(a + b) > +(b + a)) {
+//                 return -1;
+//             } else return 1;
+//         }
+//         // 나머지는 내림차순
+//         return b.localeCompare(a)});
     
     
-    return numbers.join("");
+//     return numbers.join("");
+// }
+    return numbers.sort((a, b) => +(b + a) - +(a + b)).join("")
 }
