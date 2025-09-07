@@ -19,11 +19,11 @@ function solution(k, ranges) {
         if(start === end) {answer.push(0); continue;}
         let sum = 0;
         for(let i = start; i < end; i++) {
-                sum += Math.min(result[i], result[i + 1]) + Math.abs(result[i + 1] - result[i]) * 0.5; 
+            // 사각형 넓이 + 삼각형 넓이
+            sum += Math.min(result[i], result[i + 1]) + Math.abs(result[i + 1] - result[i]) * 0.5; 
         }
         answer.push(sum);
     }
     
     return answer;
 }
-// y2 + y2-y1 * 0.5
