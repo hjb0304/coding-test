@@ -19,7 +19,8 @@ function solution(picks, minerals) {
     });
     
     // 정렬된 그룹 목록을 차례로 다이아-철-돌 순서로 캐기
-    for(item of set) {
+    for(let item of set) {
+        // 곡괭이 선택
         let pick = '';
         if(picks[0]) {
             pick = 'diamond';
@@ -31,9 +32,8 @@ function solution(picks, minerals) {
             pick = 'stone';
             picks[2]--;
         }
-        if(!pick) return answer;
         
-        for(mineral of item) {
+        for(let mineral of item) {
             answer += fatigue[pick][mineral];
         }
     }
