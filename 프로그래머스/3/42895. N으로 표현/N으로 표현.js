@@ -1,10 +1,11 @@
 function solution(N, number) {
-    if(N === number) return 1;
+    // if(N === number) return 1;
     const dp = Array.from({length : 9}, () => new Set());
     
     for(let i = 1; i <= 8; i++) {
         // 각 숫자의 배열에 N을 i개 붙인 숫자 넣기
         dp[i].add(Number(String(N).repeat(i)));
+        
         // i의 경우의 수를 j + i-j의 조합으로 나누어 구하기
         for(let j = 1; j < i; j++) {
             for(let k of dp[j]) {
@@ -18,8 +19,8 @@ function solution(N, number) {
             }
             
             // number가 있으면 반환
-            if(dp[i].has(number)) return i;
         }
+        if(dp[i].has(number)) return i;
     }
     
     return -1;
