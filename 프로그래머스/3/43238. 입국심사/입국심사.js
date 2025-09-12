@@ -2,6 +2,7 @@ function solution(n, times) {
     let right = Math.max(...times) * n;
     let left = Math.min(...times);
     
+    
     while(left <= right) {
         let mid = Math.floor((right + left) / 2);
         
