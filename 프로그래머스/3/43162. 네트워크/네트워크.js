@@ -1,25 +1,25 @@
 function solution(n, computers) {
-    var answer = n;
+    let answer = 0;
     const visited = Array(n).fill(false);
     
-    function dfs(computer) {
-        // 연결 여부와 상관없이 방문 처리
-        visited[computer] = true;                    
-        computers[computer].forEach((link, i) => {
-             if(i !== computer && link === 1 && !visited[i]) {
-                 answer--;
-                 dfs(i);
-             }
-         });
+    function findNetwork(index) {
+        // 방문 처리
+        visited[index] = true;
+        
+        computers[index].forEach((link, i) => {
+            if(i !== index && !visited[i] && link === 1) {
+                findNetwork(i);
+            }
+        });
     }
     
-    // 각 컴퓨터에서 탐색 시작
+    // 방문하지 않은 각 컴퓨터마다 탐색 + 네트워크 수 증가
     computers.forEach((computer, i) => {
         if(!visited[i]) {
-            dfs(i);
-            
+            findNetwork(i);
+            answer++;
         }
-    });
+    })
         
     return answer;
 }
