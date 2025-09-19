@@ -4,9 +4,7 @@ function solution(numbers) {
         return "0";
     }
     
-    for(let i = 0; i < numbers.length; i++) {
-        numbers[i] = numbers[i].toString();
-    }
+    numbers = numbers.map(number => number.toString());
     
     // 사전순으로 정렬    
 //     numbers.sort((a, b) => {
@@ -22,5 +20,5 @@ function solution(numbers) {
     
 //     return numbers.join("");
 // }
-    return numbers.sort((a, b) => +(b + a) - +(a + b)).join("")
+    return numbers.sort((a, b) => Number(b + a) - Number(a + b)).join("");
 }
