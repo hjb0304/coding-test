@@ -2,25 +2,25 @@ function solution(prices) {
     // var answer = [];
     
     // 스택 풀이
-    let stack = [];
-    let answer = Array(prices.length).fill(0);
+//     let stack = [];
+//     let answer = Array(prices.length).fill(0);
     
-    for(let i = 0; i < prices.length; i++) {
-        // 현재 주식 가격이 n초 전 가격보다 적을 때
-        while(stack.length && prices[i] < prices[stack[stack.length - 1]]) {
-            // 그 간격만큼이 가격이 유지된 초수
-            let last = stack.pop();
-            answer[last] = i-last;
-        }
-        stack.push(i);
-    }
+//     for(let i = 0; i < prices.length; i++) {
+//         // 현재 주식 가격이 n초 전 가격보다 적을 때
+//         while(stack.length && prices[i] < prices[stack[stack.length - 1]]) {
+//             // 그 간격만큼이 가격이 유지된 초수
+//             let last = stack.pop();
+//             answer[last] = i-last;
+//         }
+//         stack.push(i);
+//     }
     
-    // 가격이 계속 유지되었던 주식들
-    while(stack.length) {
-        let last = stack.pop();
-        // 생성된 순간부터 끝날 때까지 유지
-        answer[last] = prices.length - last - 1;
-    }
+//     // 가격이 계속 유지되었던 주식들
+//     while(stack.length) {
+//         let last = stack.pop();
+//         // 생성된 순간부터 끝날 때까지 유지
+//         answer[last] = prices.length - last - 1;
+//     }
     
     // for(let i = 0; i < prices.length; i++) {
     //     let count = 0;
@@ -36,6 +36,26 @@ function solution(prices) {
     //     }
     //     answer.push(count)
     // }
+    
+    const stack = [];
+    const answer = Array(prices.length).fill(0);
+    
+    prices.forEach((price, i) => {
+        // 현재 가격이 스택의 마지막 가격보다 낮으면 
+        while(stack.length && price < prices[stack[stack.length - 1]]) {
+            // 스택에서 제거
+            const last = stack.pop(); 
+            // 가격 유지한 기간 기록
+            answer[last] = i - last; 
+        }
+        // 스택에 현재 가격의 인덱스 추가
+        stack.push(i);
+    });
+    
+    // 스택에 남은 가격들 처리
+    for(index of stack) {
+        answer[index] = prices.length - index - 1;
+    }
     
     return answer;
 }
