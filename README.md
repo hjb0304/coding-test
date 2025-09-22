@@ -1,18 +1,2 @@
 # coding-test
-코딩테스트 저장소
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Hash Table
-|  |
-| ------- |
-| [1469-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/hjb0304/coding-test/tree/master/1469-minimum-number-of-steps-to-make-two-strings-anagram) |
-## String
-|  |
-| ------- |
-| [1469-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/hjb0304/coding-test/tree/master/1469-minimum-number-of-steps-to-make-two-strings-anagram) |
-## Counting
-|  |
-| ------- |
-| [1469-minimum-number-of-steps-to-make-two-strings-anagram](https://github.com/hjb0304/coding-test/tree/master/1469-minimum-number-of-steps-to-make-two-strings-anagram) |
-<!---LeetCode Topics End-->
+각종 사이트에서 푼 문제들과 풀이를 모아놓은 코딩테스트 저장소입니다. JavaScript를 사용해 풀고 있습니다.
