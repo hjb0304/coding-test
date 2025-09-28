@@ -3,8 +3,6 @@
  * @return {void} Do not return anything, modify board in-place instead.
  */
 var solve = function (board) {
-    if (!board.flat().includes("X")) return board;
-
     const m = board.length;
     const n = board[0].length;
     const moves = [[-1, 0], [1, 0], [0, -1], [0, 1]];
@@ -14,7 +12,6 @@ var solve = function (board) {
         // 가장자리와 연결된 O는 L로 변경
         board[y][x] = "L";
         visited[y][x] = true;
-        console.log(y, x)
         for (move of moves) {
             const [ny, nx] = [y + move[0], x + move[1]];
             if (ny >= 0 && ny < m && nx >= 0 && nx < n && !visited[ny][nx] && board[ny][nx] === "O") {
