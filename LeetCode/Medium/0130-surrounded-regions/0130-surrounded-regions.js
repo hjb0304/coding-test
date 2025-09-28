@@ -6,15 +6,14 @@ var solve = function (board) {
     const m = board.length;
     const n = board[0].length;
     const moves = [[-1, 0], [1, 0], [0, -1], [0, 1]];
-    const visited = Array.from({ length: m }, () => Array(n).fill(false));
 
     function dfs(y, x) {
-        // 가장자리와 연결된 O는 L로 변경
+        // 가장자리와 연결된 O는 L로 변경 (방문 배열 역할)
         board[y][x] = "L";
-        visited[y][x] = true;
-        for (move of moves) {
+
+        for (let move of moves) {
             const [ny, nx] = [y + move[0], x + move[1]];
-            if (ny >= 0 && ny < m && nx >= 0 && nx < n && !visited[ny][nx] && board[ny][nx] === "O") {
+            if (ny >= 0 && ny < m && nx >= 0 && nx < n && board[ny][nx] === "O") {
                 dfs(ny, nx);
             }
         }
