@@ -7,7 +7,7 @@ var wordPattern = function(pattern, s) {
     const dic = {};
     const arr = s.split(' ');
 
-    // 단어와 알파벳 개수가 다르면 false
+    // 단어와 알파벳 개수가 다르면 false   
     if(pattern.length !== arr.length) return false;
 
     for(let i = 0; i < pattern.length; i++) {
