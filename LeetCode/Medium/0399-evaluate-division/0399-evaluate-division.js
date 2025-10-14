@@ -25,9 +25,11 @@ var calcEquation = function (equations, values, queries) {
         for (let cha of map.get(start).keys()) {
             if (!visited.has(cha)) {
                 const next = dfs(cha, end, result * map.get(start).get(cha), visited);
-                return next;
+                if(next !== -1) return next;
             }
         }
+        // 모든 탐색 후 답이 없으면 -1
+        return -1;
     }
    
     for (let query of queries) {
