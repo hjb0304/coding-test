@@ -18,7 +18,7 @@ function solution(files) {
         return arr;
     }       
     
-    // HEAD 기준으로 정렬 후 같으면 NUMBER 기준으로 정렬
+    // HEAD 기준으로 정렬 후(localeCompare(): 문자열의 일부분 정렬) 같으면 NUMBER 기준으로 정렬
     files.sort((a, b) => (findHeadNumber(a)[0].localeCompare(findHeadNumber(b)[0])) || (+findHeadNumber(a)[1] - +findHeadNumber(b)[1]));
     
     return files;
