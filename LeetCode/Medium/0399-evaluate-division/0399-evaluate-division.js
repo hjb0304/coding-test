@@ -16,15 +16,15 @@ var calcEquation = function (equations, values, queries) {
         if (!map.has(cha2)) map.set(cha2, new Map());
         map.get(cha2).set(cha1, 1 / values[i]);
     }
-
+    
     // 나눗셈 결과 찾기
     function dfs(start, end, result, visited) {
         visited.add(start);
         if (map.get(start).has(end)) return result * map.get(start).get(end);
 
-        for (let cha of map.get(start).keys()) {
+        for (let [cha, val] of map.get(start)) {
             if (!visited.has(cha)) {
-                const next = dfs(cha, end, result * map.get(start).get(cha), visited);
+                const next = dfs(cha, end, result * val, visited);
                 if(next !== -1) return next;
             }
         }
